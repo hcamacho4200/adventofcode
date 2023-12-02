@@ -8,9 +8,14 @@ fn aoc_2023_01(input: &str) {
     for line in input.lines() {
         println!("{}", line);
         let mut game_split = line.split(":").into_iter();
-        let _ = game_split.next().unwrap().split(" ").nth(1).unwrap().parse::<i32>().unwrap();
+        let _ = game_split.next().unwrap().split(" ")
+            .nth(1)// splitting Game 1: we are interested in the 2nd bit
+            .unwrap()
+            .parse::<i32>().unwrap();
 
-        let mut game_sessions = game_split.remainder().unwrap().split(";");
+        let mut game_sessions = game_split.remainder()
+            .unwrap()
+            .split(";"); // splitting up the game sessions by ;
 
         let mut color_minimum_required: HashMap<String, i32> = HashMap::new();
 
