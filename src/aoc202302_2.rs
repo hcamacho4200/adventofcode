@@ -7,13 +7,8 @@ fn entry(input: &str, name: &str) -> i32 {
     let mut global_game_total = 0;
 
     for line in input.lines() {
-        println!("{}", line);
         let mut game_split = line.split(":").into_iter();
-        let _ = game_split.next().unwrap().split(" ")
-            .nth(1)// splitting Game 1: we are interested in the 2nd bit
-            .unwrap()
-            .parse::<i32>().unwrap();
-
+        let _ = game_split.next();  // not longer need the game number, but need to consume it
         let mut game_sessions = game_split.remainder()
             .unwrap()
             .split(";"); // splitting up the game sessions by ;
@@ -42,11 +37,9 @@ fn entry(input: &str, name: &str) -> i32 {
         }
         let mut game_total = 1;
         for (_color, count) in color_minimum_required.iter() {
-            print!("{} ", count);
             game_total *= count;
         }
         global_game_total += game_total;
-        println!("game_total = {:?}", game_total);
     }
     println!("global_game_total = {:?}", global_game_total);
     global_game_total

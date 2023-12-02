@@ -13,7 +13,14 @@ fn entry(input: &str, name: &str) -> i32 {
 
     for line in input.lines() {
         let mut game_split = line.split(":").into_iter();
-        let game_number = game_split.next().unwrap().split(" ").nth(1).unwrap().parse::<i32>().unwrap();
+        let game_number = game_split
+            .next()
+            .unwrap()
+            .split(" ")
+            .nth(1)
+            .unwrap()
+            .parse::<i32>()
+            .unwrap();
 
         let mut game_bad = false;
         let mut game_sessions = game_split.remainder().unwrap().split(";");
