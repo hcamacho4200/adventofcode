@@ -1,7 +1,8 @@
 use std::collections::HashMap;
+use ::function_name::named;
 
-fn aoc_2023_01(input: &str) {
-    println!("aoc_2023_02_1");
+fn entry(input: &str, name: &str) -> i32 {
+    println!("{}", name);
 
     let mut global_game_total = 0;
 
@@ -48,10 +49,12 @@ fn aoc_2023_01(input: &str) {
         println!("game_total = {:?}", game_total);
     }
     println!("global_game_total = {:?}", global_game_total);
+    global_game_total
 }
 
 #[test]
-pub fn test_aoc_2022_01() {
+#[named]
+pub fn test_aoc_2023_02_2() {
     let input = "Game 1: 7 green, 14 red, 5 blue; 8 red, 4 green; 6 green, 18 red, 9 blue
 Game 2: 3 blue, 15 red, 5 green; 1 blue, 14 red, 5 green; 11 red; 4 green, 1 blue, 3 red; 4 green, 1 blue; 10 red, 1 green
 Game 3: 11 green, 3 red; 4 green, 15 blue; 14 blue, 2 red, 10 green; 1 red, 3 green, 10 blue
@@ -153,5 +156,6 @@ Game 98: 2 blue, 2 red, 4 green; 5 green, 3 blue, 2 red; 5 green, 15 blue; 15 bl
 Game 99: 1 blue, 2 green, 8 red; 1 blue, 7 red, 1 green; 11 red, 2 green; 1 red, 1 blue
 Game 100: 8 green; 2 red, 20 green; 12 green, 1 red, 1 blue; 4 red, 1 blue; 1 blue, 6 red
 ";
-    aoc_2023_01(&input);
+    let actual = entry(&input, function_name!());
+    assert_eq!(actual, 58269)
 }

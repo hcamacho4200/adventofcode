@@ -1,4 +1,4 @@
-fn aoc_2022_02(input: &str) {
+fn entry(input: &str) {
     // a = rock      x = rock     1  x = lose
     // b = paper     y = paper    2  y = draw
     // c = scissors  z = scissors 3  z = win
@@ -2578,5 +2578,5 @@ A Y
 C X
 A X
 ";
-    aoc_2022_02(&input);
+    entry(&input);
 }

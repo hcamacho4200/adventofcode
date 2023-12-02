@@ -1,7 +1,8 @@
 use std::collections::HashMap;
+use ::function_name::named;
 
-fn aoc_2023_01(input: &str) {
-    println!("aoc_2023_01");
+fn entry(input: &str, name: &str) -> i32 {
+    println!("{}", name);
 
     let patterns = vec![
         ("seven", 7),
@@ -68,10 +69,12 @@ fn aoc_2023_01(input: &str) {
         total += (first_value * 10) + last_value;
     }
     println!("total = {}", total);
+    total
 }
 
 #[test]
-pub fn test_aoc_2022_01() {
+#[named]
+pub fn test_aoc_2023_01() {
     let input = "7jlncfksix7rjgrpglmn9
 vcgkgxninerqjltdbhqzzpd4nine23
 fx3
@@ -1073,5 +1076,6 @@ nine276rzshsrvncjrdzfxbmzzlvkhdlcc
 sevenfivexgznfftgthree44
 fivekltdkmm3rdmdnm32nineddsfdzpks
 ";
-    aoc_2023_01(&input);
+    let actual = entry(&input, function_name!());
+    assert_eq!(actual, 55614);
 }

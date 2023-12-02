@@ -1,9 +1,7 @@
 use std::cmp::Ordering;
 use std::collections::BinaryHeap;
 
-fn aoc_2022_01(input: &str) {
-    println!("aoc_2022_01");
-
+fn entry(input: &str) {
     #[derive(Debug)]
     struct Elf {
         id: i32,
@@ -2326,5 +2324,5 @@ pub fn test_aoc_2022_01() {
 5279
 
 ";
-    aoc_2022_01(&input);
+    entry(&input);
 }
