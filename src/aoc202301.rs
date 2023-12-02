@@ -1,5 +1,4 @@
-use std::cmp::{Ordering, Reverse};
-use std::collections::{BinaryHeap, HashMap};
+use std::collections::HashMap;
 
 fn aoc_2023_01(input: &str) {
     println!("aoc_2023_01");

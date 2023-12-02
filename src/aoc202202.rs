@@ -1,6 +1,3 @@
-use std::cmp::Ordering;
-use std::collections::BinaryHeap;
-
 fn aoc_2022_02(input: &str) {
     // a = rock      x = rock     1  x = lose
     // b = paper     y = paper    2  y = draw
