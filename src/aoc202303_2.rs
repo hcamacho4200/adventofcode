@@ -18,22 +18,17 @@ struct Symbol {
 fn entry(input: &str, name: &str) -> i32 {
     println!("{}", name);
 
-    let mut partnumber_map: HashMap<(i32, i32), i32> = HashMap::new();
-    let mut partnumber_symbol: HashMap<(i32, i32), String> = HashMap::new();
-
+    // build a Vector of Vectors of (offset, symbol_or_number)
     let l: Vec<_> = input.lines()
         .map(|line| {
-            println!("{}", line);
             let mut offset: i32 = 0;
             let r: Vec<_> = line.split(".")
                 .enumerate()
                 .filter_map(|(_, ch)| {
                     if ch == "" {
                         offset += 1;
-                         // println!("{} {} {} {}", _, ch, offset, _ as i32 +offset);
                         return None;
                     } else {
-                        // println!("{} {} {} {}", _, ch, offset, _ as i32 + offset);
                         let ret = Some((offset, ch));
                         offset += ch.len() as i32 + 1;
                         ret
@@ -43,7 +38,6 @@ fn entry(input: &str, name: &str) -> i32 {
             r
         })
         .collect();
-    println!("{:?}", l);
 
     let mut number_vec: Vec<Vec<Number>> = Vec::new();
     let mut symbol_vec: Vec<Vec<Symbol>> = Vec::new();
@@ -77,8 +71,6 @@ fn entry(input: &str, name: &str) -> i32 {
         number_vec.push(number_row.clone());
         symbol_vec.push(symbol_row.clone());
     }
-    println!("{:?}", number_vec);
-    println!("{:?}", symbol_vec);
 
     for (symbol_row, symbols) in symbol_vec.iter_mut().enumerate() {
         for symbol in symbols.iter_mut() {
@@ -376,5 +368,5 @@ pub fn test_aoc_2023_03_2() {
 ...................302..476.......64.....................159......815......445..........965........................558...824....281......98.
 ";
     let actual = entry(&input, function_name!());
-    assert_eq!(actual, 2101);
+    assert_eq!(actual, 81463996);
 }
